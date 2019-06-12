@@ -15,7 +15,6 @@ else:
             sum+=1
     print("Total repeating characters =",sum)
     words = code.split()
-
     word_counts = collections.Counter(words)
     print("\nRepeated Words:")
     wordrem=""
@@ -28,11 +27,10 @@ else:
             sum+=1
         wordrem+=" "+''.join([i for i in word if word_counts[word]>5])
         resultrem = ' '.join([i for i in words if i not in wordrem])
-        wordadd +=" "+''.join([i for i in word if word_counts[word]==1])
+        wordadd+=" "+''.join([i for i in word if word_counts[word]!=1])
         if len(resultadd)<=500:
-            resultadd = resultrem+" "+' '.join([i for i in words if i in wordadd])
+            resultadd = ' '.join([i for i in words if i not in wordadd])
     print("Total repeating words =",sum)
     print("The string without duplicate entries more than 5 is: ",resultrem)
-    print("The string with adding the words occuring once is: ",resultadd)
-
+    print("The string with adding the words occuring once is: ",resultrem+" "+resultadd)
 
