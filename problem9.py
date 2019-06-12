@@ -10,7 +10,7 @@ else:
     print("\nRepeated Characters:")
     sum=0
     for key, value in sorted(od.items(),reverse=True):
-        print(key, value)
+        print(key,":", value)
         if(od[key]>1):
             sum+=1
     print("Total repeating characters =",sum)
@@ -29,10 +29,10 @@ else:
         wordrem+=" "+''.join([i for i in word if word_counts[word]>5])
         resultrem = ' '.join([i for i in words if i not in wordrem])
         wordadd +=" "+''.join([i for i in word if word_counts[word]==1])
-        print(wordadd)
         if len(resultadd)<=500:
             resultadd = resultrem+" "+' '.join([i for i in words if i in wordadd])
     print("Total repeating words =",sum)
     print("The string without duplicate entries more than 5 is: ",resultrem)
     print("The string with adding the words occuring once is: ",resultadd)
+
 
