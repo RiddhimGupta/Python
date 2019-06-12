@@ -1,7 +1,6 @@
 import collections
 from collections import Counter
 from collections import OrderedDict
-import re
 code=input("Enter text: ")
 if len(code)>500:
     print("Only 500 characters accepted")
