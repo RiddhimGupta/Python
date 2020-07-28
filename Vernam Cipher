@@ -1,0 +1,42 @@
+plaintext = input("PLAINTEXT:\t")
+otp = input("ONT TIME PAD:\t")
+plaintextList = list()
+otpList = list()
+updatedPlaintext = plaintext.upper()
+updatedOtp = otp.upper()
+
+for character1 in updatedPlaintext:
+    temp1 = ord(character1) - 65
+    plaintextList.append(temp1)
+
+for character2 in updatedOtp:
+    temp1 = ord(character2) - 65
+    otpList.append(temp1)
+#removing negative numbers from PTlist
+for number in plaintextList:
+    if (number < 0):
+        plaintextList.remove(number)
+#removing negative numbers from OTPlist
+for number in otpList:
+    if (number < 0):
+        otpList.remove(number)
+
+#adding both lists in temporary list
+tempList = [i + j for i, j in zip(plaintextList, otpList)]
+#print(tempList)
+ciphertextList = []
+for item in tempList:
+    if(item > 25):
+        item -= 26
+        ciphertextList.append(item)
+    else:
+        ciphertextList.append(item)
+        
+ct = ""
+for number in ciphertextList:
+    number += 65
+    temp = chr(number)
+    tempstr = str(temp)
+    ct = ct + tempstr
+
+print("CIPHERTEXT:\t",ct.lower())
